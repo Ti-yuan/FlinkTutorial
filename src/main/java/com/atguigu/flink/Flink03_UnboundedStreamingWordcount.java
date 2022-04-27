@@ -19,7 +19,7 @@ public class Flink03_UnboundedStreamingWordcount {
     public static void main(String[] args) throws Exception {
 
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
-        DataStreamSource<String> lineDSS = env.socketTextStream("hadoop162", 9999);
+        DataStreamSource<String> lineDSS = env.socketTextStream("hadoop102", 9999);
 
         SingleOutputStreamOperator<Tuple2<String, Long>> data = lineDSS
                 .flatMap(new FlatMapFunction<String, String>() {
